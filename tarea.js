@@ -103,9 +103,9 @@ const nuevoUsuario = (nombre, email, password) => {
    */
   // Tu código:
   const Usuario = {
-    name: nombre,
-    mail: email,
-    passw: password,
+    nombre: nombre,
+    email: email,
+    password: password,
   };
   return Usuario;
 };
@@ -115,8 +115,8 @@ const verificarPassword = (usuario, password) => {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
-  const datosUsuario = nuevoUsuario("Juan", "Correo@correo.com", "1234hn#");
-  if (usuario === datosUsuario.name && password === datosUsuario.passw) {
+ 
+  if (usuario.password === password) {
     return true;
   } else {
     return false;
@@ -127,10 +127,9 @@ const actualizarPassword = (usuario, nuevaPassword) => {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevaPassword"
   // Devuelve el objeto
   // Tu código:
-  if (verificarPassword("Juan", "1234hn#")) {
     usuario.password = nuevaPassword;
     return usuario;
-  }
+  
 };
 
 const agregarAmigo = (usuario, nuevoAmigo) => {
@@ -138,15 +137,9 @@ const agregarAmigo = (usuario, nuevoAmigo) => {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // // Tu código:
-  const cambioUsuario = {
-    name: usuario.name,
-    mail: usuario.mail,
-    passw: usuario.passw,
-    friends: [],
-  };
 
-  cambioUsuario.friends.push(nuevoAmigo);
-  return cambioUsuario;
+  usuario.amigos.push(nuevoAmigo);
+  return usuario;
 };
 
 const pasarUsuarioAPremium = (usuarios) => {
